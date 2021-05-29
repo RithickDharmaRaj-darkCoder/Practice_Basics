@@ -4,8 +4,8 @@ sq = input("Enter one element : ").upper()
 for row in range(7):
     print("    ", end="")
     for column in range(5):
-        if (column == 0 or column == 4) or (row == 3):
-            print(f" {sq} ",end="")
+        if (column == 2) or (row == 0 or row == 6):
+            print(f" █ ",end="")
         else:
             print(end="   ")
     print()
