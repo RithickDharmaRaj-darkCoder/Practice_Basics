@@ -7,8 +7,10 @@ if len(sq) == 1:
     for row in range(7):
         print("    ", end="")
         for column in range(5):
-            if (column == 0) or (row == 6):
+            if (column == 0 or column == 4):
                 print(f" {sq} ",end="")
+            elif (row == 1 and column != 2) or (row == 2 and column == 2):
+                print(f" {sq} ", end="")
             else:
                 print(end="   ")
         print()
