@@ -3,18 +3,17 @@
 sq = input("Enter one element : ").upper()
 if len(sq) == 1:
     r = 0
-    c = 4
+    c = 6
     for row in range(7):
         print("    ", end="")
-        for column in range(5):
-            if (column == 2 and row > 2):
-                print(f" {sq} ", end="")
-            elif (row == column) and (row < 3):
-                print(f" {sq} ", end="")
-            elif (row == r and column == c) and (row < 3):
+        for column in range(7):
+            if (row == r and column == c):
                 print(f" {sq} ", end="")
                 r += 1
                 c -= 1
+            elif (row == 0 or row == 6):
+                print(f" {sq} ", end="")
+
             else:
                 print(end="   ")
         print()
