@@ -5,9 +5,9 @@ if len(sq) == 1:
     for row in range(7):
         print("    ", end="")
         for column in range(5):
-            if (row == 0):
+            if ((column == 0 or column == 4) and row != 6):
                 print(f" {sq} ", end="")
-            elif (column == 2):
+            elif (row ==6 and (0 < column < 4)):
                 print(f" {sq} ", end="")
             else:
                 print(end="   ")
