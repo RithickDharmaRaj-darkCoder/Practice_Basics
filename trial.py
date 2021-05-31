@@ -2,14 +2,16 @@
 
 sq = input("Enter one element : ").upper()
 if len(sq) == 1:
-    for row in range(7):
+    r = 0
+    c = 4
+    for row in range(5):
         print("    ", end="")
         for column in range(5):
-            if (column == 0 or column == 4) and (row != 0):
+            if (row == r and column == c):
                 print(f" {sq} ", end="")
-            elif (row == 4 and column == 2):
-                print(f" {sq} ", end="")
-            elif (row == 5 and (column == 1 or column == 3)):
+                r = r + 1
+                c = c - 1
+            elif (row == column):
                 print(f" {sq} ", end="")
             else:
                 print(end="   ")
