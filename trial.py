@@ -1,21 +1,28 @@
-# None Data Type
+# String Methods...
+print("Normal String")
+a = "RITHICK DHARMA RAJ"
+print(a,'\n')
 
-sq = input("Enter one element : ").upper()
-if len(sq) == 1:
-    r = 0
-    c = 6
-    for row in range(7):
-        print("    ", end="")
-        for column in range(7):
-            if (row == r and column == c):
-                print(f" {sq} ", end="")
-                r += 1
-                c -= 1
-            elif (row == 0 or row == 6):
-                print(f" {sq} ", end="")
+print("capatalize()")
+b = a.capitalize()
+print(b,'\n')
 
-            else:
-                print(end="   ")
-        print()
-else:
-    print("Warning! Enter only '1' Character.")
+print("casefold()")
+b = a.casefold()
+print(b,'\n')
+
+print("center()")
+b = a.center(30,"-")
+print(b,'\n')
+
+print("count()")
+b = a.count('A')
+print(b,'\n')
+
+print("encode()")
+b = a.encode()
+print(b,'\n')
+
+print("endswith()")
+b = a.endswith("J")
+print(b)
