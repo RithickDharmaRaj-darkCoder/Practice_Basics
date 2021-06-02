@@ -1,16 +1,12 @@
 # String Methods...
 
 
-r = 0
-c = 4
 for row in range(5):
     print("    ", end="")
     for column in range(5):
-        if (row == r and column == c):
+        if (column == 0 or row == 4):
             print("*", end="  ")
-            r += 1
-            c -= 1
-        elif (row == 0 or column == 0):
+        elif (row == column):
             print("*", end="  ")
         else:
             print(end="   ")
