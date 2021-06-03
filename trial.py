@@ -1,31 +1,29 @@
 # String Methods...
 
-a = '2\u00B2' #unicode of (2 power 2)
-print(a,'\n'+"isdecimal() :",a.isdecimal())
-a = '\u0031'  #unicode of 1
-print(a,'\n'+"isdecimal() :",a.isdecimal(),'\n--------------------')
+a = "Rithick Dharma Raj"
+print(a,'\n'+"isspace() :",a.isspace())
+a = "    "
+print(a,'\n'+"isspace() :",a.isspace(),'\n--------------------')
 
-a = "2\u00B2"  #unicode of (2 power 2)
-print(a,'\n'+"isdigit() :",a.isdigit())
-a = "1"
-print(a,'\n'+"isdigit() :",a.isdigit(),'\n--------------------')
+a = 'Rithick dharma Raj'
+print(a,'\n'+"istitle() :",a.istitle())
+a = "Rithick Dharma Raj"
+print(a,'\n'+"istitle() :",a.istitle(),'\n--------------------')
 
-a = "17Rithickdark Coder"
-print(a,'\n'+"isidentifier() :",a.isidentifier())
-a = "Rithick17dark_Coder"
-print(a,'\n'+"isidentifier() :",a.isidentifier(),'\n--------------------')
+a = "Rithick dharma RAJ"
+print(a,'\n'+"isupper() :",a.isupper())
+a = "17 RITHICK DHARMA RAJ *+-"
+print(a,'\n'+"istitle() :",a.isupper(),'\n--------------------')
 
-a = 'Rithick DHARMA raJ'
-print(a,'\n'+"islower() :",a.islower())
-a = '* rithick dharma raj 17'
-print(a,'\n'+"islower() :",a.islower(),'\n--------------------')
+a = ("Rithick","Dharma","Raj")
+print(a,'\n'+"join() :","-".join(a),'\n--------------------')
 
-a = "-17.17"
-print(a,'\n'+"isnumeric() :",a.isnumeric())
-a = "17\u00B2"
-print(a,'\n'+"isnumeric() :",a.isnumeric(),'\n--------------------')
+a = {'Fname':"Rithick",'Lname':"Dharma Raj"}
+print(a,'\n'+"formate_map() :","{Fname} is also called as "
+"{Lname}".format_map(a),'\n--------------------')
 
-a = "Rithick\tDharma Raj"   #\t can't able to print...
-print(a,'\n'+"isprintable() :",a.isprintable())
-a = "RithickDharma Raj #17"
-print(a,'\n'+"isprintable() :",a.isprintable())
+a = "Rithick"
+print(a,"\n"+"ljust() :",a.ljust(10,'^'),".darkCoder",'\n--------------------')
+
+a = "Rithick"
+print(a,"\n"+"rjust() :",a.rjust(10,'*'),".darkCoder",'\n--------------------')
