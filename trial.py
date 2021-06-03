@@ -1,32 +1,31 @@
 # String Methods...
 
-a = 'RITHICK DHARMA RAJ'
-print("Normal String :",a,'\n-------------------')
+a = '2\u00B2' #unicode of (2 power 2)
+print(a,'\n'+"isdecimal() :",a.isdecimal())
+a = '\u0031'  #unicode of 1
+print(a,'\n'+"isdecimal() :",a.isdecimal(),'\n--------------------')
 
-a = 'RITHICK\tDHARMA\tRAJ'
-b = a.expandtabs(6)
-print("expandtabs() :",b,'\n--------------------')
+a = "2\u00B2"  #unicode of (2 power 2)
+print(a,'\n'+"isdigit() :",a.isdigit())
+a = "1"
+print(a,'\n'+"isdigit() :",a.isdigit(),'\n--------------------')
 
-b = a.find("K")
-print("find() :",b)
-b = a.find("u")
-print("find() :",b,'\n-------------------') #not found = -1.
+a = "17Rithickdark Coder"
+print(a,'\n'+"isidentifier() :",a.isidentifier())
+a = "Rithick17dark_Coder"
+print(a,'\n'+"isidentifier() :",a.isidentifier(),'\n--------------------')
 
-a = 'Rithick {name} Raj'
-b = a.format(name = 'Dharma')
-print("formate() :",b,'\n-------------------')
+a = 'Rithick DHARMA raJ'
+print(a,'\n'+"islower() :",a.islower())
+a = '* rithick dharma raj 17'
+print(a,'\n'+"islower() :",a.islower(),'\n--------------------')
 
-a = 'RithickDharmaRaj17'
-print("isalnum() :",a.isalnum())
-a = "@#!$%"  #Space also gives False.
-print("isalnum() :",a.isalnum(),'\n-------------------')
+a = "-17.17"
+print(a,'\n'+"isnumeric() :",a.isnumeric())
+a = "17\u00B2"
+print(a,'\n'+"isnumeric() :",a.isnumeric(),'\n--------------------')
 
-a = 'RithickDharmaRaj17'
-print("isalpha() :",a.isalpha())
-a = "@#!$%"  #Space also gives False.
-print("isalpha() :",a.isalpha(),'\n-------------------')
-
-b = a.index('!')
-print("index() :",b,'\n')
-b = a.index('u')
-print("index() :",b,'\n-------------------') #not found = error!.
+a = "Rithick\tDharma Raj"   #\t can't able to print...
+print(a,'\n'+"isprintable() :",a.isprintable())
+a = "RithickDharma Raj #17"
+print(a,'\n'+"isprintable() :",a.isprintable())
