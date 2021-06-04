@@ -1,5 +1,7 @@
 # Range Datatype ...
 
-a = range(5)
-print(a,'\n',type(a),'\n--------------------')
-
+for row in range(5):
+    print("     ", end=" ")
+    for column in range(5):
+        print('*', end=" ")
+    print()
