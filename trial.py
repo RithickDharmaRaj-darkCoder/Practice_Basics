@@ -1,6 +1,5 @@
-# Numerical Patterns ...
+# Range Datatype ...
 
-a = "Rithick"
-print(a,"\n"+"upper () :",a.upper(),'\n--------------------')
+a = range(5)
+print(a,'\n',type(a),'\n--------------------')
 
-print(a,"\n"+"zfill () :",a.zfill(17),'\n--------------------')
