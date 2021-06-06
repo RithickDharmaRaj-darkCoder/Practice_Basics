@@ -1,22 +1,27 @@
 # Set Datatype ...
 
-st = {1,2,"three",'FOUR'}
-print("Normal Set :",st,'\n--------------------')
+a = {"Rithick","Dharma","Raj"}
+b = {"Rithick",".darkCoder"}
+print("Normal Set :",a)
+print("Normal Set :",b,'\n--------------------')
 
-st.add(5)
-print("add () :",st,'# can be added at any index.\n--------------------')
+c = a.difference(b)
+d = b.difference(a)
+print("difference () :",c)
+print("difference () :",d,'\n--------------------')
 
-st.remove(5)
-print("remove () :",st,'\n--------------------')
+a.difference_update(b)
+b.difference_update(a)
+print("difference_update () :",a)
+print("difference-update () :",b,'\n--------------------')
 
-st.pop()
-print("pop () :",st,'# Remove 1\'st element from set.\n--------------------')
+a.discard("Raj")
+print("discord () :",a,'\n--------------------')
 
-st.pop()
-print("pop () :",st,'# Remove 1\'st element from set.\n--------------------')
+s = {1,2,3,4,5,6}
+t = {4,5,6,7,8}
+e = t.intersection(s)
+print("intersection () :",e,'\n--------------------')
 
-st.pop()
-print("pop () :",st,'# Remove 1\'st element from set.\n--------------------')
-
-st.clear()
-print("clear () :",st,'\n--------------------')
+t.intersection_update(s)
+print("intersection_update () :",t,'\n--------------------')
