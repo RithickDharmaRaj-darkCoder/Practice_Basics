@@ -1,13 +1,5 @@
-# Set Datatype ...
+# Dictionary Datatype ...
 
-a = {"Rithick","Dharma","Raj"}
-c = {"1,2,3,4,5"}
-print("Normal Set :",a,"\n--------------------")
-b = a.copy()
-print("copy () :",b,"\n--------------------")
+a = { 1:'One',2:"two",3:'THREE'}
+print(f'Normal Dictionary : {a}\n{type(a)}')
 
-d = a.union(c)
-print("union () :",d,"\n--------------------")
-
-a.update(c)
-print("update () :",a,"\n--------------------")
