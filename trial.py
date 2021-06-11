@@ -1,16 +1,17 @@
-# Bubble Sort...
+# Selection Sort...
 
-size = int(input("How many numbers want to insert : "))
-lst1 = []
-for iput in range(size):
-    lst2 = int(input("Enter the number : "))
-    lst1.append(lst2)
+lst = []
+lsize = int(input("\nEnter how many elements to be insert : "))
+for i in range(lsize):
+    elst = int(input("Enter the elements to add it in list : "))
+    lst.append(elst)
+print("Before Selection Sort : ", lst)
 
-print(f'\nOriginal lst : {lst1}\n')
-for repeat in range(len(lst1)-1):
-    for num in range(len(lst1)-1):
-        if lst1[num] > lst1[num + 1]:
-            lst1[num],lst1[num + 1] = lst1[num + 1],lst1[num]
-    print(f'Iteration {repeat+1} : {lst1}')
-
-print(f'\nBubble Sort :{lst1}')
+for outer in range(len(lst) - 1):
+    min_index = outer
+    for inner in range(outer + 1, len(lst)):
+        if lst[min_index] > lst[inner]:
+            min_index = inner
+    if lst[outer] != lst[min_index]:
+        lst[outer], lst[min_index] = lst[min_index], lst[outer]
+print("After Selection Sort : ", lst)
