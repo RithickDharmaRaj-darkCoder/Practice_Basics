@@ -1,11 +1,10 @@
 # Insertion Sort...
 
-lst = []
+
 lsize = int(input("\nEnter how many elements to be insert : "))
-for i in range(lsize):
-    elst = int(input(f"Add Element {i+1} : "))
-    lst.append(elst)
+lst = [int(input(f'Add element {i+1} : ')) for i in range(lsize)]
 print(f'Before Insertion Sort : {lst}')
+
 
 for index in range(1,len(lst)):
     curent_value = lst[index]
