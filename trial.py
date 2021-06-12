@@ -1,20 +1,17 @@
-# Selection Sort...
+# Insertion Sort...
 
 lst = []
-lsize = int(input("Enter how many numbers want to add : "))
-i = 1
-for call in range(lsize):
-    iput = int(input(f'Enter the number {i} : '))
-    lst.append(iput)
-    i += 1
-print(f'Before Selection Sort : {lst}')
+lsize = int(input("\nEnter how many elements to be insert : "))
+for i in range(lsize):
+    elst = int(input(f"Add Element {i+1} : "))
+    lst.append(elst)
+print(f'Before Insertion Sort : {lst}')
 
-for outer in range(len(lst)):
-    min_index = outer
-    for inner in range(outer+1,len(lst)):
-        if lst[min_index] > lst[inner]:
-            min_index = inner
-    if lst[outer] != lst[min_index]:
-        lst[min_index],lst[outer] = lst[outer],lst[min_index]
-    print(f'it{outer} : {lst}')
-print(f'After Selection Sort : {lst}')
+for index in range(1,len(lst)):
+    curent_value = lst[index]
+    postion = index
+    while (curent_value < lst[postion-1] ) and (postion > 0):
+        lst[postion] = lst[postion-1]
+        postion -= 1
+    lst[postion] = curent_value
+print(f'After Insertion Sort : {lst}')
