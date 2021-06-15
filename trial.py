@@ -1,25 +1,15 @@
-# Quick Sort...
+#  Sort...
 
-lsize = int(input('How many numbers want to insert : '))
-lst = [int(input(f'Add Number {i + 1} : ')) for i in range(lsize)]
-print(f'Before Quick Sort : {lst}')
+lst = [7,8,5,6,9]
+lst.sort()
+print(lst)
+print(sorted(lst))
 
-def quick(lst):
-    n = len(lst)
-    if n <= 1:
-        return lst
-    else:
-        key = lst.pop()
+tpl = (7,8,5,6,8)
+print(sorted(tpl))
 
-    lower_elements = []
-    greater_elements = []
+set = {7,8,5,6,9}
+print(sorted(set))
 
-    for element in lst:
-        if element < key:
-            lower_elements.append(element)
-        else:
-            greater_elements.append(element)
-
-    return quick(lower_elements) + [key] + quick(greater_elements)
-
-print(f'After Quick Sort  : {quick(lst)}')
+dict = {'one':1,'two':2,'three':3}
+print(sorted(dict.items()))
