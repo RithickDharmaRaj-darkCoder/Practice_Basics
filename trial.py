@@ -1,29 +1,28 @@
-# Merge Sort...
+# Heap Sort...
+
+def heapify(lst,n,p_index):
+    largest = p_index
+    left_child_index = p_index * 2 + 1
+    right_child_index = p_index * 2 + 2
+
+    if left_child_index < n and lst[largest] < lst[left_child_index]:
+        largest = left_child_index
+    if right_child_index < n and lst[largest] < lst[right_child_index]:
+        largest = right_child_index
+    if largest != p_index:
+        lst[p_index],lst[largest] = lst[largest],lst[p_index]
+        heapify(lst,n,largest)
+
+def heapsort(lst):
+    for p_index in range(n // 2 -1,-1,-1):
+        heapify(lst,n,p_index)
+    for len in range(n-1,0,-1):
+        lst[len],lst[0] = lst[0],lst[len]
+        heapify(lst,len,0)
 
 lsize = int(input('How many numbers want to insert : '))
-lst = [int(input(f'Add Number {i+1} : '))for i in range(lsize)]
-print(f'Before Merge Sort : {lst}')
-def merging2list(lft,right):
-    result = []
-    i,j = 0,0
-    while i < len(lft) and j < len(right):
-        if lft[i] < right[j]:
-            result.append(lft[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-    result += lft[i:]
-    result += right[j:]
-    return result
-
-def divide(lst):
-    if len(lst) <= 1:
-        return lst
-    else:
-        mid_val = len(lst) // 2
-        lft = divide(lst[:mid_val])
-        right = divide(lst[mid_val:])
-        return merging2list(lft,right)
-
-print(f'After Merge Sort : {divide(lst)}')
+lst = [int(input(f'Add Number {i + 1} : ')) for i in range(lsize)]
+print(f'Before Heap Sort : {lst}')
+n = len(lst)
+heapsort(lst)
+print(f'After Heap Sort : {lst}')
