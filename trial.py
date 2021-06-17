@@ -1,10 +1,10 @@
 # Data Structure...
 # Built-in Data Structure...
-# Set {}
+# Dictionary {}
 
-st = {1,','}
-print(type(st))
-print(st)
-st.add(3)
-st.pop()
-print(st)
+dict = {}
+print(type(dict))
+dict['Name'] = 'Rithick Dharma Raj'
+
+dict.update()
+print(dict)
