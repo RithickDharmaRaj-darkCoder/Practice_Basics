@@ -1,11 +1,8 @@
 # Data Structure...
 # Built-in Data Structure...
-# list[]
+# Tuple[]
 
-lst = (7,8,5,6,9)
-lst1 = list(lst)
-print(type(lst))
-print(type(lst1))
-print(lst1)
-del lst1
-print(sorted(lst))
+tpl = (10,(123))*2
+print(tpl)
+tpl1 = 1,2,3,4,5
+print(type(tpl1))
