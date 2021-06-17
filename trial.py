@@ -1,8 +1,10 @@
 # Data Structure...
 # Built-in Data Structure...
-# Tuple[]
+# Set {}
 
-tpl = (10,(123))*2
-print(tpl)
-tpl1 = 1,2,3,4,5
-print(type(tpl1))
+st = {1,','}
+print(type(st))
+print(st)
+st.add(3)
+st.pop()
+print(st)
