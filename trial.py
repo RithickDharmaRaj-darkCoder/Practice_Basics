@@ -1,12 +1,18 @@
 # Data Structure ...
 # User-Defined ...
-# Queue ...
+# Priority Queue ...
 # queue Lib ...
-# Queue ...
+# PriorityQueue ...
 
 from queue import *
 
-qu = Queue()
-qu.put(10)
-qu.put_nowait(20)
-print(Queue(qu))
+qu = PriorityQueue()
+qu.put(7)
+qu.put(8)
+qu.put(5)
+qu.put(6)
+qu.put(9)
+print(qu)
+
+print(qu.get())
+print(qu.get())
