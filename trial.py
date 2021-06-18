@@ -1,28 +1,12 @@
 # Data Structure ...
 # User-Defined ...
 # Queue ...
-# Collection Lib ...
-# deque ...
+# queue Lib ...
+# Queue ...
 
-from collections import *
+from queue import *
 
-qu = deque()
-print(not qu)
-qu.appendleft(7)
-qu.appendleft(8)
-qu.appendleft(5)
-qu.appendleft(6)
-qu.appendleft(9)
-print(qu)
-qu.pop()
-print(qu)
-
-qu1 = deque()
-qu1.append(7)
-qu1.append(8)
-qu1.append(5)
-qu1.append(6)
-qu1.append(9)
-print(qu1)
-qu1.popleft()
-print(qu1[0])
+qu = Queue()
+qu.put(10)
+qu.put_nowait(20)
+print(Queue(qu))
