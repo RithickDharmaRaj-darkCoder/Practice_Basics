@@ -1,10 +1,15 @@
-# Data Structure...
-# Built-in Data Structure...
-# Dictionary {}
+# Data Structure ...
+# User-Defined ...
+# Stack...
+# Collections Library ...
+# deque (Double Ended Queue) ...
 
-dict = {}
-print(type(dict))
-dict['Name'] = 'Rithick Dharma Raj'
+from collections import *
 
-dict.update()
-print(dict)
+stk = deque([7,8,5])
+stk.append(6)
+print(stk)
+stk.pop()
+print(stk)
+print(stk.pop())
+print(not stk)
