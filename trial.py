@@ -1,12 +1,24 @@
 # Data Structure ...
 # User-Defined ...
-# Stack...
-# Queue Library ...
-# LifoQueue ...
+# Queue ...
+# List as Queue ...
 
-from queue import *
+qu = []
+qu.insert(0,7)
+qu.insert(0,8)
+qu.insert(0,5)
+print(qu)
+qu.pop()
+qu.pop()
+qu.pop()
+print(qu)
+print(not qu)
 
-stk = LifoQueue()
-stk.put(7)
-stk.get()
-stk.get(timeout=.5)
+qu = []
+qu.insert(0,7)
+qu.insert(0,8)
+qu.insert(0,5)
+print(qu)
+qu.clear()
+print(qu)
+print(not qu)
