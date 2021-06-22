@@ -1,20 +1,19 @@
 # Class And Object ...
 
-class StudentInfo:
+class StudentInfo():
+    college = 'vvit'
     def __init__(self,stdname,dept,year,regno):
         self.name = stdname
         self.dept = dept
         self.year = year
         self.rollno = regno
-    def display(self):
-        print(f'Hi, i\'m {self.name} studying {self.year} year-{self.dept} and my register number is {self.rollno}.')
+    def stdinclg(self):
+        print(self.name,self.dept,self.year,self.rollno)
 
-totalstd = int(input('Total no.of Students : '))
-for i in range(totalstd):
-    std = StudentInfo(input(f'Student{i+1} Name : '),
-                input('Department : '),
-                input('Year : '),
-                input('Register No. : '))
-print("Data Saved!")
+class StudentInfo(StudentInfo):
 
-std.display()
+    def stdinhome(self):
+        print(self.name,self.dept,self.college)
+
+StudentInfo('Mr_17','CSE','Final',6128_17_104_008).stdinclg()
+StudentInfo('Mr_17','CSE','Final',00).stdinhome()
