@@ -6,13 +6,15 @@ class StudentInfo:
         self.dept = dept
         self.year = year
         self.rollno = regno
-        print('Data Saved Successfully!',end=" ")
     def display(self):
         print(f'Hi, i\'m {self.name} studying {self.year} year-{self.dept} and my register number is {self.rollno}.')
 
-StudentInfo('Rithick Dharma Raj','CSE','Final',regno=6128_17_104_008)
-StudentInfo('Rithick Dharma Raj','CSE','Final',regno=6128_17_104_008).display()
+totalstd = int(input('Total no.of Students : '))
+for i in range(totalstd):
+    std = StudentInfo(input(f'Student{i+1} Name : '),
+                input('Department : '),
+                input('Year : '),
+                input('Register No. : '))
+print("Data Saved!")
 
-std1 = StudentInfo('Rithick Dharma Raj','CSE','Final',regno=6128_17_104_008)
-std1.display()
-std2 = StudentInfo('Dharma Raj','ECE','Final',regno=6128_17_106_000).display()
+std.display()
