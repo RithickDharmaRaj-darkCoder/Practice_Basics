@@ -1,18 +1,25 @@
-# Class And Object ...
+# Data Structure ...
+# User-Defined ...
+# Linked List ...
+# Singly Linked List (Traversal Working !!!) ...
 
-class car:
-    __speed = 0
-    __name = ' '
+class node():
+    def __init__(self,data):
+        self.data = data
+        self.linkto = None
+
+class linkedlist():
     def __init__(self):
-        self.__speed = 200
-        self.__name = "Normal Car"
-    def changename(self,name):
-        self.__name = name
-    def changespeed(self,speed):
-        self.__speed = speed
-    def carinfo(self):
-        print(f'{self.__name}\n{self.__speed}')
+        self.head = None
 
-tata = car()
-tata.changename('TATA')
-tata.carinfo()
+    def traversal(self):
+        if self.head is None:
+            print('Linked List is Empty!')
+        else:
+            node = self.head
+            while node is not None:
+                print(node.data)
+                node = node.linkto
+
+node1 = linkedlist()
+node1.traversal()
