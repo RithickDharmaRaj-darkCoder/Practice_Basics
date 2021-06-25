@@ -1,15 +1,18 @@
 # Class And Object ...
 
-class students():
+class car:
+    __speed = 0
+    __name = ' '
+    def __init__(self):
+        self.__speed = 200
+        self.__name = "Normal Car"
+    def changename(self,name):
+        self.__name = name
+    def changespeed(self,speed):
+        self.__speed = speed
+    def carinfo(self):
+        print(f'{self.__name}\n{self.__speed}')
 
-    def __init__(self,name,roll):
-        self.name = name
-        self.roll = roll
-    def info(self):
-        print(self.name)
-        self.__rollno()
-    def __rollno(self):
-        print(self.roll)
-
-std1 = students('RDR','007')
-
+tata = car()
+tata.changename('TATA')
+tata.carinfo()
