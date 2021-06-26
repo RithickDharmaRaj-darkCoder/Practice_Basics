@@ -33,6 +33,7 @@ class linkedlist():
             newnode.linkto = self.head
             self.head = newnode
         self.traversal()
+
     def add_at_ending(self,data):
         newnode = creatingnode(data)
         if self.head is None:
@@ -43,6 +44,7 @@ class linkedlist():
                 n = n.linkto
             n.linkto = newnode
         self.traversal()
+
     def add_after_node(self,data,x):
         newnode = creatingnode(data)
         n = self.head
@@ -55,9 +57,10 @@ class linkedlist():
                 if n.data == x:
                     newnode.linkto = n.linkto
                     n.linkto = newnode
+                    self.traversal()
                 else:
                     print(f'{x} is not in the Linked List!\n--------------------')
-        self.traversal()
+
     def add_before_node(self,data,x):
         n = self.head
         if n is None:
@@ -80,13 +83,25 @@ class linkedlist():
         else:
             print("Linked List is not empty!\n--------------------'")
 
+    def del_at_starting(self):
+        if self.head is None:
+            print("Linked List is already empty!\n--------------------'")
+        else:
+            self.head = self.head.linkto
+            self.traversal()
+
+    #def del_at_ending(self):
+        if self.head is None:
+            print("Linked List is already empty!\n--------------------'")
+        else:
+            n = self.head
+            if n.linkto == None:
+                self.head = None
+            else:
+                while n.linkto.linkto != None:
+                    n = n.linkto
+                n.linkto = None
+            self.traversal()
+
 
 ll = linkedlist()
-ll.add_when_llEmpty(40)
-ll.add_at_starting(10)
-ll.add_at_ending(50)
-ll.add_when_llEmpty(100)
-ll.add_after_node(20,10)
-ll.add_before_node(30,40)
-ll.add_after_node(60,50)
-ll.add_before_node(70,80)
