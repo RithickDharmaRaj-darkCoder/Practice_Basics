@@ -11,12 +11,13 @@ class creatingnode():
 class linkedlist():
     def __init__(self):
         self.head = None
+        self.traversal()
 
     def traversal(self):
-        print('Head --> ',end=" ")
         if self.head is None:
-            print('Linked List is Empty!')
+            print('Linked List is Empty!\n--------------------')
         else:
+            print('Head --> ', end=" ")
             n = self.head
             while n is not None:
                 print(f'[{n.data}] --> ',end=" ")
@@ -43,7 +44,7 @@ class linkedlist():
         newnode = creatingnode(data)
         n = self.head
         if self.head is None:
-            print('No Node in the Linked List!')
+            print('No Node in the Linked List!\n--------------------')
         else:
             while (n.data != x) and (n.linkto is not None):
                 n = n.linkto
@@ -52,14 +53,25 @@ class linkedlist():
                     newnode.linkto = n.linkto
                     n.linkto = newnode
                 else:
-                    print(f'{x} is not in the Linked List!')
+                    print(f'{x} is not in the Linked List!\n--------------------')
         self.traversal()
-
+    def add_before_node(self,data,x):
+        n = self.head
+        if n is None:
+            print('No Node in the Linked List!\n--------------------')
+        elif n.data == x:
+            self.add_at_starting(data)
+        else:
+            while n.linkto is not None:
+                if n.linkto.data == x:
+                    self.add_after_node(data,n.data)
+                    break
+                else:
+                    n = n.linkto
+            if n.linkto is None:
+                print(f'{x} is not in the Linked List!\n--------------------')
 
 
 
 ll = linkedlist()
-ll.add_at_starting(40)
-ll.add_at_starting(20)
-ll.add_at_starting(10)
-ll.add_after_node(30,20)
+ll.add_before_node(10,20)
