@@ -75,13 +75,17 @@ class linkedlist():
                 print(f'{x} is not in the Linked List!\n--------------------')
 
     def add_when_llEmpty(self,data):
-        self.add_at_starting(data)
+        if self.head is None:
+            self.add_at_starting(data)
+        else:
+            print("Linked List is not empty!\n--------------------'")
 
 
 ll = linkedlist()
 ll.add_when_llEmpty(40)
 ll.add_at_starting(10)
 ll.add_at_ending(50)
+ll.add_when_llEmpty(100)
 ll.add_after_node(20,10)
 ll.add_before_node(30,40)
 ll.add_after_node(60,50)
