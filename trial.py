@@ -27,8 +27,11 @@ class linkedlist():
 
     def add_at_starting(self,data):
         newnode = creatingnode(data)
-        newnode.linkto = self.head
-        self.head = newnode
+        if self.head is None:
+            self.head = newnode
+        else:
+            newnode.linkto = self.head
+            self.head = newnode
         self.traversal()
     def add_at_ending(self,data):
         newnode = creatingnode(data)
@@ -71,7 +74,15 @@ class linkedlist():
             if n.linkto is None:
                 print(f'{x} is not in the Linked List!\n--------------------')
 
+    def add_when_llEmpty(self,data):
+        self.add_at_starting(data)
 
 
 ll = linkedlist()
-ll.add_before_node(10,20)
+ll.add_when_llEmpty(40)
+ll.add_at_starting(10)
+ll.add_at_ending(50)
+ll.add_after_node(20,10)
+ll.add_before_node(30,40)
+ll.add_after_node(60,50)
+ll.add_before_node(70,80)
