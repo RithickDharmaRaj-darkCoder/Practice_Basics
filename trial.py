@@ -90,7 +90,7 @@ class linkedlist():
             self.head = self.head.linkto
             self.traversal()
 
-    #def del_at_ending(self):
+    def del_at_ending(self):
         if self.head is None:
             print("Linked List is already empty!\n--------------------'")
         else:
