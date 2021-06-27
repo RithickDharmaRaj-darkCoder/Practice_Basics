@@ -103,12 +103,30 @@ class linkedlist():
                 n.linkto = None
             self.traversal()
 
-    def del_middle(self,x):
+    def del_Node(self,x):
         if self.head is None:
             print("Linked List is already empty!\n--------------------'")
         else:
-            pass
+            n = self.head
+            if n.data == x:
+                self.del_at_starting()
+            else:
+                while n.linkto != None:
+                    if n.linkto.data != x:
+                        n = n.linkto
+                    else:
+                        n.linkto = n.linkto.linkto
+                        self.traversal()
+                        break
+                else:
+                    if n.linkto == None:
+                        print(f'{x} is not in the Linked List!\n--------------------')
 
 
 
 ll = linkedlist()
+ll.add_at_starting(40)
+ll.add_at_starting(30)
+ll.add_at_starting(20)
+ll.add_at_starting(10)
+ll.del_Node(60)
