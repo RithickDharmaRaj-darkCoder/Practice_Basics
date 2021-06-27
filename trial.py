@@ -103,5 +103,12 @@ class linkedlist():
                 n.linkto = None
             self.traversal()
 
+    def del_middle(self,x):
+        if self.head is None:
+            print("Linked List is already empty!\n--------------------'")
+        else:
+            pass
+
+
 
 ll = linkedlist()
