@@ -9,11 +9,13 @@ class creatingnode():
         self.linkto = None
 
 class linkedlist():
-    def __init__(self):
+    def __init__(self,name):
+        self.name = name
         self.head = None
-        self.traversal()
+
 
     def traversal(self):
+        print(self.name, end=" ")
         if self.head is None:
             print('Linked List is Empty!\n--------------------')
         else:
@@ -32,7 +34,7 @@ class linkedlist():
         else:
             newnode.linkto = self.head
             self.head = newnode
-        self.traversal()
+
 
     def add_at_ending(self,data):
         newnode = creatingnode(data)
@@ -43,12 +45,13 @@ class linkedlist():
             while n.linkto is not None:
                 n = n.linkto
             n.linkto = newnode
-        self.traversal()
+
 
     def add_after_node(self,data,x):
         newnode = creatingnode(data)
         n = self.head
         if self.head is None:
+            print(self.name, end=" ")
             print('No Node in the Linked List!\n--------------------')
         else:
             while (n.data != x) and (n.linkto is not None):
@@ -57,13 +60,15 @@ class linkedlist():
                 if n.data == x:
                     newnode.linkto = n.linkto
                     n.linkto = newnode
-                    self.traversal()
+
                 else:
+                    print(self.name, end=" ")
                     print(f'{x} is not in the Linked List!\n--------------------')
 
     def add_before_node(self,data,x):
         n = self.head
         if n is None:
+            print(self.name, end=" ")
             print('No Node in the Linked List!\n--------------------')
         elif n.data == x:
             self.add_at_starting(data)
@@ -75,23 +80,27 @@ class linkedlist():
                 else:
                     n = n.linkto
             if n.linkto is None:
+                print(self.name, end=" ")
                 print(f'{x} is not in the Linked List!\n--------------------')
 
-    def add_when_llEmpty(self,data):
+    def add_when_LL_Empty(self,data):
         if self.head is None:
             self.add_at_starting(data)
         else:
+            print(self.name, end=" ")
             print("Linked List is not empty!\n--------------------'")
 
     def del_at_starting(self):
         if self.head is None:
+            print(self.name, end=" ")
             print("Linked List is already empty!\n--------------------'")
         else:
             self.head = self.head.linkto
-            self.traversal()
+
 
     def del_at_ending(self):
         if self.head is None:
+            print(self.name, end=" ")
             print("Linked List is already empty!\n--------------------'")
         else:
             n = self.head
@@ -101,10 +110,11 @@ class linkedlist():
                 while n.linkto.linkto != None:
                     n = n.linkto
                 n.linkto = None
-            self.traversal()
+
 
     def del_Node(self,x):
         if self.head is None:
+            print(self.name, end=" ")
             print("Linked List is already empty!\n--------------------'")
         else:
             n = self.head
@@ -116,17 +126,14 @@ class linkedlist():
                         n = n.linkto
                     else:
                         n.linkto = n.linkto.linkto
-                        self.traversal()
                         break
                 else:
                     if n.linkto == None:
+                        print(self.name, end=" ")
                         print(f'{x} is not in the Linked List!\n--------------------')
 
 
 
-ll = linkedlist()
-ll.add_at_starting(40)
-ll.add_at_starting(30)
-ll.add_at_starting(20)
-ll.add_at_starting(10)
-ll.del_Node(60)
+ll1 = linkedlist('LL1 : ')
+ll1.add_when_LL_Empty(35)
+ll1.add_after_node(20,30)
