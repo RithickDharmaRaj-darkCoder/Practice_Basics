@@ -47,15 +47,31 @@ class D_LinkedList():
 
         else:
             newnode.linktoN = self.head
-            newnode.linktoN.linktoP = newnode
             self.head = newnode
+            newnode.linktoN.linktoP = newnode
 
-
+    def add_at_ending(self,data):
+        newnode = create_node(data)
+        if self.head is None:
+            self.head = newnode
+            self.tail = newnode
+        else:
+            h = self.head
+            t = self.tail
+            while h is not  None:
+                h = h.linktoN
+            else:
+                newnode.linktoP = self.tail
+                self.tail = newnode
+                newnode.linktoP.linktoN = newnode
 
 
 
 ll1 = D_LinkedList('LL1')
 ll1.add_at_starting(20)
 ll1.add_at_starting(10)
+ll1.add_at_ending(30)
+ll1.add_at_ending(40)
 ll1.traversal_Forword()
 ll1.traversal_Backword()
+
