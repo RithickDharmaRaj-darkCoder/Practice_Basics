@@ -16,7 +16,7 @@ class D_LinkedList():
         self.tail = None
 
     def traversal_Forword(self):
-        print(f'{self.name} : ',end= " ")
+        print(f'{self.name} :',end= " ")
         if self.head is None:
             print('Linked List is Empty!')
         else:
@@ -28,7 +28,7 @@ class D_LinkedList():
             print('Tail\n--------------------')
 
     def traversal_Backword(self):
-        print(f'{self.name} : ',end= " ")
+        print(f'{self.name} :',end= " ")
         if self.head is None:
             print('Linked List is Empty!')
         else:
@@ -73,7 +73,7 @@ class D_LinkedList():
 
     def add_after_node(self,data,x):
         if self.head is None:
-            print('Linked List is Empty!')
+            print(f'{self.name} :Linked List is Empty!')
         else:
             h = self.head
             while h is not None:
@@ -83,7 +83,7 @@ class D_LinkedList():
                 elif h.data != x and h.linktoN is not None:
                     h = h.linktoN
                 elif h.data != x and h.linktoN is None:
-                    print(f'{x} is not in the Linked List!')
+                    print(f'{self.name} :{x} is not in the Linked List!')
                     break
                 elif h.data == x and h.linktoN is not None:
                     newnode = create_node(data)
@@ -95,7 +95,7 @@ class D_LinkedList():
 
     def add_before_node(self,data,x):
         if self.head is None:
-            print('Linked List is Empty!')
+            print(f'{self.name} :Linked List is Empty!')
         else:
             t = self.tail
             while t is not None:
@@ -115,12 +115,32 @@ class D_LinkedList():
                     newnode.linktoP.linktoN = newnode
                     break
 
+    def del_at_starting(self):
+        if self.head is None:
+            print(f'{self.name} : Linked List is already Empty!')
+        else:
+            if self.head.linktoN is None:
+                self.head = None
+                self.tail = None
+                print(f'{self.name} : Linked List is made Empty!')
+            else:
+                h = self.head
+                self.head = h.linktoN
+                h.linktoN.linktoP = h.linktoP
+
 
 
 
 ll1 = D_LinkedList('LL1')
-
-
+ll1.add_at_ending(10)
+ll1.add_at_ending(20)
+ll1.add_at_ending(30)
+ll1.add_at_ending(40)
+ll1.del_at_starting()
+ll1.del_at_starting()
+ll1.del_at_starting()
+ll1.del_at_starting()
+ll1.del_at_starting()
 
 ll1.traversal_Forword()
 ll1.traversal_Backword()
