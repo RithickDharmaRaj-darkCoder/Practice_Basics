@@ -128,7 +128,18 @@ class D_LinkedList():
                 self.head = h.linktoN
                 h.linktoN.linktoP = h.linktoP
 
-
+    def del_at_ending(self):
+        if self.tail is None:
+            print(f'{self.name} : Linked List is already Empty!')
+        else:
+            if self.tail.linktoP is None:
+                self.head = None
+                self.tail = None
+                print(f'{self.name} : Linked List is made Empty!')
+            else:
+                t = self.tail
+                self.tail = t.linktoP
+                t.linktoP.linktoN = t.linktoN
 
 
 ll1 = D_LinkedList('LL1')
@@ -136,11 +147,11 @@ ll1.add_at_ending(10)
 ll1.add_at_ending(20)
 ll1.add_at_ending(30)
 ll1.add_at_ending(40)
-ll1.del_at_starting()
-ll1.del_at_starting()
-ll1.del_at_starting()
-ll1.del_at_starting()
-ll1.del_at_starting()
+ll1.del_at_ending()
+ll1.del_at_ending()
+ll1.del_at_ending()
+ll1.del_at_ending()
+
 
 ll1.traversal_Forword()
 ll1.traversal_Backword()
