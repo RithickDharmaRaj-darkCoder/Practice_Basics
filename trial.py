@@ -39,7 +39,7 @@ class C_S_linkedlist:
         newnode = create_node(data)
         newnode.next = self.head
         h = self.head
-        if not self.head:
+        if not h:
             newnode.next = newnode
         else:
             while h.next != self.head:
