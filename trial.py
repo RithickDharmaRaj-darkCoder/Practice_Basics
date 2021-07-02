@@ -61,7 +61,20 @@ class C_S_linkedlist:
 
 
     def add_after_node(self,data,x):
-        pass
+        h = self.head
+        while h:
+            if h.data == x and h.next != self.head:
+                break
+            if h.data == x and h.next == self.head:
+                break
+            if h.data !=x and h.next == self.head:
+                print(f'{self.name} : {x} is not in the linked list')
+                break
+            else:
+                h = h.next
+        else:
+            print(f'{self.name} : Linked List is Empty!')
+
 
     def add_before_node(self,data,x):
         pass
@@ -71,4 +84,6 @@ ll1.add_at_starting(30)
 ll1.add_at_starting(20)
 ll1.add_at_starting(10)
 ll1.add_at_ending(40)
+ll1.add_after_node(60,40)
+
 ll1.traversal()
