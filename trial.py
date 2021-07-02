@@ -48,7 +48,17 @@ class C_S_linkedlist:
         self.head = newnode
 
     def add_at_ending(self,data):
-        pass
+        newnode = create_node(data)
+        newnode.next = self.head
+        h = self.head
+        if not h:
+            newnode.next = newnode
+            self.head = newnode
+        else:
+            while h.next != self.head:
+                h = h.next
+            h.next = newnode
+
 
     def add_after_node(self,data,x):
         pass
@@ -57,8 +67,8 @@ class C_S_linkedlist:
         pass
 
 ll1 = C_S_linkedlist('LL1')
-ll1.add_ll_empty(5)
 ll1.add_at_starting(30)
 ll1.add_at_starting(20)
 ll1.add_at_starting(10)
+ll1.add_at_ending(40)
 ll1.traversal()
