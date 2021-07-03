@@ -135,6 +135,27 @@ class C_S_linkedlist:
         else:
             print(f'{self.name} : Linked List is already Empty! ')
 
+    def del_node(self,x):
+        h = self.head
+        if h:
+            if h.data == x:
+                self.del_at_starting()
+            else:
+                while h:
+                    if h.next.data == x and h.next.next == self.head:
+                        self.del_at_ending()
+                        break
+                    elif h.next.data != x and h.next.next == self.head:
+                        print(f'{self.name} : {x} is not in the linked list')
+                        break
+                    elif h.next.data == x and h.next.next != self.head:
+                        h.next = h.next.next
+                        break
+                    else:
+                        h = h.next
+        else:
+            print(f'{self.name} : Linked List is already Empty! ')
+
 
 ll1 = C_S_linkedlist('LL1')
 ll1.add_at_starting(30)
@@ -142,6 +163,6 @@ ll1.add_at_starting(20)
 ll1.add_at_starting(10)
 ll1.add_at_ending(40)
 ll1.add_after_node(50,40)
-ll1.del_at_ending()
+ll1.del_node(80)
 
 ll1.traversal()
