@@ -63,11 +63,57 @@ class C_S_linkedlist:
             self.tail = newnode
         self.head = newnode
 
+    def add_at_ending(self,data):
+        newnode = create_node(data)
+        t = self.tail
+        if t:
+            newnode.prev = self.tail
+            newnode.next = newnode.prev.next
+            newnode.prev.next = newnode
+            while t.prev:
+                if t.prev != self.tail:
+                    t = t.prev
+                else:
+                    t.prev = newnode
+                    break
+        else:
+            newnode.next = newnode
+            newnode.prev = newnode
+            self.head = newnode
+        self.tail = newnode
+'''
+    def add_before(self,data,x):
+        h = self.head
+        if not h:
+            print(f"{self.name} : Linked List is Empty!")
+        else:
+            if h.data == x:
+                self.add_at_starting(data)
+            else:
+                while h.next:
+                    if h.next.data == x:
+                        newnode = create_node(data)
+                        newnode.next = h.next
+                        h.next = newnode
+                        newnode.prev = newnode.next.prev
+                        newnode.next.prev = newnode
+                        break
+                    elif h.next.data != x and h.next.next == self.head:
+                        print(f"{self.name} : {x} is not in the Linked List!")
+                        break
+                    else:
+                        h = h.next
+'''
+
+
+
 
 ll1 = C_S_linkedlist("LL1")
 ll1.add_at_starting(30)
 ll1.add_at_starting(20)
-
+#ll1.add_at_starting(10)
+ll1.add_at_ending(40)
+ll1.add_before(10,20)
 
 
 ll1.traversal_fd()
