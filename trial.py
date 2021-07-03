@@ -81,7 +81,7 @@ class C_S_linkedlist:
             newnode.prev = newnode
             self.head = newnode
         self.tail = newnode
-'''
+
     def add_before(self,data,x):
         h = self.head
         if not h:
@@ -103,7 +103,6 @@ class C_S_linkedlist:
                         break
                     else:
                         h = h.next
-'''
 
 
 
