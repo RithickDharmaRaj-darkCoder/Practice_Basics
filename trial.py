@@ -2,167 +2,73 @@
 # User-Defined ...
 # Linked List ...
 # Circular Linked List ...
-# Circular-Singly Linked List ...
+# Circular-Doubly Linked List ...
 
 class create_node:
     def __init__(self,data):
         self.data = data
         self.next = None
+        self.prev = None
 
 class C_S_linkedlist:
     def __init__(self,object_name):
         self.name = object_name
         self.head = None
+        self.tail = None
 
-    def traversal(self):
-        print(f'{self.name} : ',end= "")
+    def traversal_fd(self):
+        print(f'{self.name} : ',end="")
         h = self.head
-        while h:
-            print(f'{h.data} -> ',end= "")
-            h = h.next
-            if h == self.head:
-                print('...')
-                break
+        if h:
+            while h.next:
+                if h.next != self.head:
+                    print(f'{h.data} -> ',end="")
+                    h = h.next
+                else:
+                    print(f'{h.data} -> ...')
+                    break
         else:
-            print('Linked List is Empty!')
+            print(f"Linked List is Empty!")
 
-    def add_ll_empty(self,data):
-        n = self.head
-        if n:
-            print(f'{self.name} : Linked List is not Empty!')
+    def traversal_bw(self):
+        print(f'{self.name} : ',end="")
+        t = self.tail
+        if t:
+            while t.prev:
+                if t.prev != self.tail:
+                    print(f'{t.data} -> ', end="")
+                    t = t.prev
+                else:
+                    print(f'{t.data} -> ...')
+                    break
         else:
-            newnode = create_node(data)
-            newnode.next = newnode
-            self.head = newnode
+            print(f"{self.name} : Linked List is Empty!")
 
     def add_at_starting(self,data):
         newnode = create_node(data)
-        newnode.next = self.head
         h = self.head
-        if not h:
-            newnode.next = newnode
-        else:
-            while h.next != self.head:
-                h = h.next
-            h.next = newnode
-        self.head = newnode
-
-    def add_at_ending(self,data):
-        newnode = create_node(data)
-        newnode.next = self.head
-        h = self.head
-        if not h:
-            newnode.next = newnode
-            self.head = newnode
-        else:
-            while h.next != self.head:
-                h = h.next
-            h.next = newnode
-
-
-    def add_after_node(self,data,x):
-        h = self.head
-        while h:
-            if h.data == x and h.next != self.head:
-                newnode = create_node(data)
-                newnode.next = h.next
-                h.next = newnode
-                break
-            if h.data == x and h.next == self.head:
-                newnode = create_node(data)
-                newnode.next = self.head
-                h.next = newnode
-                break
-            if h.data !=x and h.next == self.head:
-                print(f'{self.name} : {x} is not in the linked list')
-                break
-            else:
-                h = h.next
-        else:
-            print(f'{self.name} : Linked List is Empty! ')
-
-
-    def add_before_node(self,data,x):
-        h = self.head
-        if not h:
-            print(f'{self.name} : Linked List is Empty! ')
-        elif h.data == x:
-            self.add_at_starting(data)
-        else:
-            while h:
-                if h.next.data !=x and h.next.next == self.head:
-                    print(f'{self.name} : {x} is not in the linked list')
-                    break
-                elif h.next.data == x:
-                    newnode = create_node(data)
-                    newnode.next = h.next
+        if h:
+            newnode.next = self.head
+            newnode.prev = newnode.next.prev
+            newnode.next.prev = newnode
+            while h.next:
+                if h.next != self.head:
+                    h = h.next
+                else:
                     h.next = newnode
                     break
-                else:
-                    h = h.next
-
-    def del_at_starting(self):
-        h = self.head
-        if h:
-            if h.next == self.head:
-                self.head = None
-                print(f'{self.name} : Linked List is made Empty! ')
-            else:
-                root = h.next
-                while h:
-                    if h.next == self.head:
-                        h.next = root
-                        break
-                    else:
-                        h = h.next
-                self.head = root
         else:
-            print(f'{self.name} : Linked List is already Empty! ')
-
-    def del_at_ending(self):
-        h = self.head
-        if h:
-            if h.next == self.head:
-                self.head = None
-                print(f'{self.name} : Linked List is made Empty! ')
-            else:
-                while h:
-                    if h.next.next == self.head:
-                        h.next = h.next.next
-                        break
-                    else:
-                        h = h.next
-        else:
-            print(f'{self.name} : Linked List is already Empty! ')
-
-    def del_node(self,x):
-        h = self.head
-        if h:
-            if h.data == x:
-                self.del_at_starting()
-            else:
-                while h:
-                    if h.next.data == x and h.next.next == self.head:
-                        self.del_at_ending()
-                        break
-                    elif h.next.data != x and h.next.next == self.head:
-                        print(f'{self.name} : {x} is not in the linked list')
-                        break
-                    elif h.next.data == x and h.next.next != self.head:
-                        h.next = h.next.next
-                        break
-                    else:
-                        h = h.next
-        else:
-            print(f'{self.name} : Linked List is already Empty! ')
+            newnode.next = newnode
+            newnode.prev = newnode
+            self.tail = newnode
+        self.head = newnode
 
 
-ll1 = C_S_linkedlist('LL1')
+ll1 = C_S_linkedlist("LL1")
 ll1.add_at_starting(30)
 ll1.add_at_starting(20)
-ll1.add_at_starting(10)
-ll1.add_at_ending(40)
-ll1.add_after_node(50,40)
-ll1.del_node(80)
 
-ll1.traversal()
+
+
+ll1.traversal_fd()
+ll1.traversal_bw()
