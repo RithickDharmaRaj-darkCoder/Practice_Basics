@@ -146,16 +146,34 @@ class C_S_linkedlist:
                         break
                 self.head = root
 
+    def del_at_ending(self):
+        t = self.tail
+        if not t:
+            print(f"{self.name} : Linked List is already Empty!")
+        elif t.prev == self.tail:
+            self.head = None
+            self.tail = None
+            print(f"{self.name} : Linked List is made Empty!")
+        else:
+            root = t.prev
+            root.next = t.next
+            while t.prev:
+                if t.prev != self.tail:
+                    t = t.prev
+                else:
+                    t.prev = root
+                    break
+            self.tail = root
 
 ll1 = C_S_linkedlist("LL1")
-#ll1.add_at_starting(30)
-#ll1.add_at_starting(20)
-#ll1.add_at_ending(40)
-#ll1.add_before(10,20)
-#ll1.add_after(60,40)
-#ll1.add_after(50,40)
-#ll1.add_after(15,10)
-ll1.del_at_starting()
+ll1.add_at_starting(30)
+ll1.add_at_starting(20)
+ll1.add_at_ending(40)
+ll1.add_before(10,20)
+ll1.add_after(60,40)
+ll1.add_after(50,40)
+ll1.add_after(15,10)
+ll1.del_at_ending()
 
 
 ll1.traversal_fd()
