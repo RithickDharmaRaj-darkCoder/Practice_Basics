@@ -1,14 +1,25 @@
 # Learning Tkinter ...
 from tkinter import *
-import random
-aadhaarno = random.randint(1000_0000_0000_0000,9999_9999_9999_9999)
+
 def create_btn():
-    name_iputinfo = name.get()
-    age_iput = age.get()
-    mobile_info = mobile.get()
-    print(f"Created Aadhaar Successfully!\n{name_iputinfo}\n{age_iput}\n{mobile_info}")
-    aadhaarno1 = str(aadhaarno)
-    print(f'{aadhaarno1[0:4]} {aadhaarno1[4:8]} {aadhaarno1[8:12]} {aadhaarno1[12:]}')
+    name_info = name.get()
+    age_info = str(age.get())
+    mobile_info = str(mobile.get())
+
+    # Creating a File ...
+    file = open(f"{name_info}.txt","w")
+    file.write(f'Name          : {name_info}')
+    file.write(f'\nAge           : {age_info}')
+    file.write(f'\nMobile Number : {mobile_info}')
+    file.write(f'\nAadhaar ID    : {mobile_info[6:]} {mobile_info[:4]} {mobile_info[3:7]} {mobile_info[::3]}')
+    file.close()
+    print(f"{name_info}, you have created Aadhaar successfully!")
+
+    # Deleting Entry Fields ...
+    name_iput.delete(0,END)
+    age_iput.delete(0,END)
+    mobile_iput.delete(0,END)
+
 
 screen = Tk()
 screen.title('Aadhaar Management System')
@@ -24,12 +35,12 @@ age.place(x=20,y=150)
 mobilNo = Label(text='Enter Your Mobile.No ',fg='blue')
 mobilNo.place(x=20,y=200)
 
+# Input Entry Section ...
 # Datatype section ...
 name = StringVar()
 age = IntVar()
 mobile = IntVar()
 
-# Input Entry Section ...
 name_iput = Entry(textvariable=name)
 name_iput.place(x=170,y=100,width=200)
 age_iput = Entry(textvariable=age)
