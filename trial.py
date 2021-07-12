@@ -86,7 +86,35 @@ class bst:
             else:
                 self.rchild = bst(key=data)
 
-
+    def delete(self,x):
+        if not self.key:
+            print('Binary Search tree is already Empty!')
+            return
+        if x < self.key:
+            if self.lchild:
+                self.lchild = self.lchild.delete(x)
+            else:
+                print(f'{x} is not in BST!')
+        elif x > self.key:
+            if self.rchild:
+                self.rchild = self.rchild.delete(x)
+            else:
+                print(f'{x} is not in BST!')
+        else:
+            if not self.lchild:
+                temp = self.rchild
+                self =None
+                return temp
+            if not self.rchild:
+                temp = self.rchild
+                self = None
+                return temp
+            node = self.rchild
+            while node.lchild:
+                node = node.lchild
+            self.key = node.key
+            self.rchild = self.rchild.delete(node.key)
+        return self
 bst1 = bst(70)
 lst = [50,30,40,60,10,20,80]
 for i in lst:
@@ -94,5 +122,5 @@ for i in lst:
 
 
 bst1.traversal()
-bst1.post_order_traversal()
-bst1.find(980)
+bst1.delete(70)
+bst1.traversal()
