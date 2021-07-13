@@ -1,126 +1,23 @@
 # Python Learning Field ...
 
-# Data Structure ...
-# User-Defined ...
-# Non-Linear ...
-# Trees ...
-# Binary Search Tree ...
+# Creating Class in Advance ...
 
-class bst:
-    def __init__(self,key=None):
-        self.key = key
-        self.lchild = None
-        self.rchild = None
+# creating Attributes to the class ...
+def init(self,num1,num2):
+    self.a = num1
+    self.b = num2
+    addition(self)
+    subtraction(self)
 
-    def traversal(self):
-        print(f'Pre-Order  : ', end=" ")
-        self.pre_order_traversal()
-        print(f'\nIn-Order   : ',end=" ")
-        self.in_order_traversal()
-        print(f'\nPost-Order : ', end=" ")
-        self.post_order_traversal()
-        print('\n')
+def addition(self):
+    print(f'Addition : {self.a + self.b}')
 
-    def pre_order_traversal(self):
-        if not self.key:
-            print('Binary Search tree is Empty!')
-        elif self.key:
-            print(f'{self.key}',end=",")
-            if self.lchild:
-                self.lchild.pre_order_traversal()
-            if self.rchild:
-                self.rchild.pre_order_traversal()
+def subtraction(self):
+    print(f'Subtraction : {self.a - self.b}')
 
-    def in_order_traversal(self):
-        if not self.key:
-            print('Binary Search tree is Empty!')
-        else:
-            if self.lchild:
-                self.lchild.in_order_traversal()
-            print(f'{self.key}',end=',')
-            if self.rchild:
-                self.rchild.in_order_traversal()
+# Creating class by using type() method ...
+calci = type('Calci',(),{'__init__':init,'add':addition,'sub':subtraction})
 
-    def post_order_traversal(self):
-        if not self.key:
-            print('Binary Search tree is Empty!')
-        else:
-            if self.lchild:
-                self.lchild.post_order_traversal()
-            if self.rchild:
-                self.rchild.post_order_traversal()
-            print(f'{self.key}',end=',')
-
-    def find(self,x):
-        print()
-        if not self.key:
-            print('Binary Search tree is Empty!')
-            return
-        if x == self.key:
-            print(f'{x} is found in BST!')
-        elif x < self.key:
-            if not self.lchild:
-                print(f'{x} is not in BST!')
-            else:
-                self.lchild.find(x)
-        elif x > self.key:
-            if not self.rchild:
-                print(f'{x} is not in BST!')
-            else:
-                self.rchild.find(x)
-
-    def insert(self, data):
-        if not self.key:
-            self.key = data
-            return
-        if data < self.key:
-            if self.lchild:
-                self.lchild.insert(data)
-            else:
-                self.lchild = bst(key=data)
-        elif data == self.key:
-            return
-        else:
-            if self.rchild:
-                self.rchild.insert(data)
-            else:
-                self.rchild = bst(key=data)
-
-    def delete(self,x):
-        if not self.key:
-            print('Binary Search tree is already Empty!')
-            return
-        if x < self.key:
-            if self.lchild:
-                self.lchild = self.lchild.delete(x)
-            else:
-                print(f'{x} is not in BST!')
-        elif x > self.key:
-            if self.rchild:
-                self.rchild = self.rchild.delete(x)
-            else:
-                print(f'{x} is not in BST!')
-        else:
-            if not self.lchild:
-                temp = self.rchild
-                self =None
-                return temp
-            if not self.rchild:
-                temp = self.rchild
-                self = None
-                return temp
-            node = self.rchild
-            while node.lchild:
-                node = node.lchild
-            self.key = node.key
-            self.rchild = self.rchild.delete(node.key)
-        return self
-bst1 = bst(70)
-lst = [50,30,40,60,10,20,80]
-for i in lst:
-    bst1.insert(i)
-
-
-bst1.traversal()
-bst1.delete(70)
-bst1.traversal()
+# Creating objects to the class ...
+task1 = calci(3,5)
+print(type(calci))
