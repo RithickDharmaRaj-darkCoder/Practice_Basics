@@ -9,7 +9,6 @@
 class bst:
     def __init__(self,key=None):
         self.key = key
-        self.curr = key
         self.lchild = None
         self.rchild = None
 
@@ -24,10 +23,9 @@ class bst:
 
     def pre_order_traversal(self):
         if not self.key:
-            print('Binary Search tree is Empty!',end='')
+            print('Binary Search tree is Empty!')
         elif self.key:
-            if self.key != 'None':
-                print(f'{self.key}',end=",")
+            print(f'{self.key}',end=",")
             if self.lchild:
                 self.lchild.pre_order_traversal()
             if self.rchild:
@@ -35,12 +33,11 @@ class bst:
 
     def in_order_traversal(self):
         if not self.key:
-            print('Binary Search tree is Empty!',end='')
+            print('Binary Search tree is Empty!')
         else:
             if self.lchild:
                 self.lchild.in_order_traversal()
-            if self.key != 'None':
-                print(f'{self.key}',end=',')
+            print(f'{self.key}',end=',')
             if self.rchild:
                 self.rchild.in_order_traversal()
 
@@ -52,11 +49,9 @@ class bst:
                 self.lchild.post_order_traversal()
             if self.rchild:
                 self.rchild.post_order_traversal()
-            if self.key != 'None':
-                print(f'{self.key}',end=',')
+            print(f'{self.key}',end=',')
 
     def find(self,x):
-        print()
         if not self.key:
             print('Binary Search tree is Empty!')
             return
@@ -72,6 +67,24 @@ class bst:
                 print(f'{x} is not in BST!')
             else:
                 self.rchild.find(x)
+
+    def min(self):
+        if not self.key:
+            print('Binary Search tree is Empty!')
+        else:
+            if not self.lchild:
+                print(f'Minimum : {self.key}')
+            else:
+                self.lchild.min()
+
+    #def max(self):
+        if not self.key:
+            print('Binary Search tree is Empty!')
+        else:
+            if not self.rchild:
+                print(f'Minimum : {self.key}')
+            else:
+                self.rchild.max()
 
     def insert(self, data):
         if not self.key:
@@ -122,14 +135,11 @@ class bst:
             else:
                 print(f'{x} is not in the Tree!')
 
-
-
-
-
 tree = bst(10)
-lst = []
-for i in lst:
-    tree.insert(i)
+lst = [5,14,77,8,9,6,17,2,15,3,1]
+for number in lst:
+    tree.insert(number)
+
 tree.traversal()
-tree.delete()
-tree.traversal()
+tree.min()
+tree.max()
