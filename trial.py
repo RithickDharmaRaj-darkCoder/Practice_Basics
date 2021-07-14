@@ -77,7 +77,7 @@ class bst:
             else:
                 self.lchild.min()
 
-    #def max(self):
+    def max(self):
         if not self.key:
             print('Binary Search tree is Empty!')
         else:
