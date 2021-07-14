@@ -25,7 +25,8 @@ class bst:
         if not self.key:
             print('Binary Search tree is Empty!')
         elif self.key:
-            print(f'{self.key}',end=",")
+            if self.key != 'None':
+                print(f'{self.key}', end=',')
             if self.lchild:
                 self.lchild.pre_order_traversal()
             if self.rchild:
@@ -37,7 +38,8 @@ class bst:
         else:
             if self.lchild:
                 self.lchild.in_order_traversal()
-            print(f'{self.key}',end=',')
+            if self.key != 'None':
+                print(f'{self.key}', end=',')
             if self.rchild:
                 self.rchild.in_order_traversal()
 
@@ -49,9 +51,11 @@ class bst:
                 self.lchild.post_order_traversal()
             if self.rchild:
                 self.rchild.post_order_traversal()
-            print(f'{self.key}',end=',')
+            if self.key != 'None':
+                print(f'{self.key}', end=',')
 
     def find(self,x):
+        print()
         if not self.key:
             print('Binary Search tree is Empty!')
             return
@@ -135,11 +139,13 @@ class bst:
             else:
                 print(f'{x} is not in the Tree!')
 
+
+
 tree = bst(10)
-lst = [5,14,77,8,9,6,17,2,15,3,1]
-for number in lst:
-    tree.insert(number)
+lst = [1,3,4,56,76,34,21,90]
+for i in lst:
+    tree.insert(i)
 
 tree.traversal()
-tree.min()
-tree.max()
+tree.delete(56)
+tree.traversal()
