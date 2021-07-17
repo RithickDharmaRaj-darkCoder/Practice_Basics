@@ -1,58 +1,73 @@
 # Python Learning Field ...
 
-class amg:
-    nodes = []
-    node_count = 0
-    graphs =[]
+class alrg:
+    graph = {}
 
     def traversal(self):
-        print('    ',end="")
-        for i in self.nodes:
-            print(format(i,"<3"),end="  ")
-        print()
-        for row in range(self.node_count):
-            print(self.nodes[row],end="   ")
-            for column in range(self.node_count):
-                print(f'{format(self.graphs[row][column],"<3")}',end="  ")
-            print()
+        for i in self.graph:
+            print(f'{i} = {self.graph.get(i)}')
 
-    def add_node(self,variable):
-        if variable in self.nodes:
-            print(f'{variable} is already present!')
+    '''def add_node(self,v):
+        if v in self.graph:
+            print(f'{v} is already in graph!')
         else:
-            self.node_count += 1
-            self.nodes.append(variable)
-            for column in self.graphs:
-                column.append(0)
-            temp = []
-            for i in range(self.node_count):
-                temp.append(0)
-            self.graphs.append(temp)
+            self.graph[v] = []
 
-    def add_edge(self,v1,v2):
-        if v1 not in self.nodes:
-            print(f'{v1} is not in graph\n')
-        elif v2 not in self.nodes:
-            print(f'{v2} is not in graph')
+    def add_edges(self,v1,v2):
+        if v1 not in self.graph:
+            print(f'{v1} is not in graph!')
+        elif v2 not in self.graph:
+            print(f'{v2} is not in graph!')
         else:
-            self.graphs[self.nodes.index(v1)][self.nodes.index(v2)] = 1
-            self.graphs[self.nodes.index(v2)][self.nodes.index(v1)] = 1
+            if v2 not in self.graph[v1]:
+                self.graph[v1].append(v2)
+            if v1 not in self.graph[v2]:
+                self.graph[v2].append(v1)
+
+    def delete_node(self,v):
+        if v not in self.graph:
+            print(f'{v} is not in graph!')
+        else:
+            self.graph.pop(v)
+            for i in self.graph:
+                try:
+                    self.graph[i].remove(v)
+                except ValueError:
+                    pass
+
+    def delete_edge(self,v1,v2):
+        if v1 not in self.graph:
+            print(f'{v1} is not in graph!')
+        elif v2 not in self.graph:
+            print(f'{v2} is not in graph!')
+        else:
+            self.graph[v1].remove(v2)
+            self.graph[v2].remove(v1)'''
 
 
 
-g1 = amg()
+gp = alrg()
+# Adding Nodes ...
+gp.add_node("A")
+gp.add_node("B")
+gp.add_node("C")
+gp.add_node("D")
+gp.add_node("E")
 
-lst = ['A','B','C','D','E','F']
-for nodes in lst:
-    g1.add_node(nodes)
+# Adding Edges ...
+gp.add_edges("A","B")
+gp.add_edges("A","C")
+gp.add_edges("A","D")
+gp.add_edges("B","D")
+gp.add_edges("B","E")
+gp.add_edges("C","D")
+gp.add_edges("D","E")
 
-g1.add_edge('A','B')
-g1.add_edge('A','C')
-g1.add_edge('A','D')
-g1.add_edge('B','D')
-g1.add_edge('B','E')
-g1.add_edge('C','D')
-g1.add_edge('D','E')
-g1.add_edge('E','F')
+# Deleting Nodes ...
+gp.delete_node('E')
 
-g1.traversal()
+# Deleting Edge ...
+gp.delete_edge('A','D')
+gp.delete_edge('C','D')
+
+gp.traversal()
