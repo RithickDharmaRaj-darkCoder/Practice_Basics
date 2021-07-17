@@ -24,7 +24,7 @@ class alrg:
             if v1 not in self.graph[v2]:
                 self.graph[v2].append(v1)
 
-    '''def delete_node(self,v):
+    def delete_node(self,v):
         if v not in self.graph:
             print(f'{v} is not in graph!')
         else:
@@ -42,7 +42,7 @@ class alrg:
             print(f'{v2} is not in graph!')
         else:
             self.graph[v1].remove(v2)
-            self.graph[v2].remove(v1)'''
+            self.graph[v2].remove(v1)
 
 
 
